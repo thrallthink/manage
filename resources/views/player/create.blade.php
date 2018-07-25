@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Create Player</h2>
+                <h2>Add Player</h2>
             </div>
            
         </div>
@@ -56,7 +56,7 @@
                 <textarea name="about" class="form-control" >{{old('about')}}</textarea>
             </div>
             <div class="col-md-5">
-                <strong>Players Image:</strong>
+                <strong>Player's Image:</strong>
                 <input type="file" name="image" class="form-control">
             </div>
             <input type="hidden" name="team_id" value="{{$teamid}}">
@@ -67,7 +67,7 @@
           
             <div class="col-md-2">
                 <br/>
-                <button type="submit" class="btn btn-success">Create Player</button>
+                <button type="submit" class="btn btn-success">Add Player</button>
             </div>
         </div>
 
