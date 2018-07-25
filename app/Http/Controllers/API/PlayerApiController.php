@@ -142,9 +142,9 @@ class PlayerApiController extends ApiController
     public function destroy(Request $request)
     {   
        
-       $team = Team::find($request->id);
-       $team->delete();
+       $player = Player::find($request->id);
+       $player->delete();
         
-        return redirect()->route('team.index')
-                        ->with('success','Team deleted successfully');    }
+        return response()->json(['response' => 'success', 'message' => 'Player deleted.']);
+   }
 }

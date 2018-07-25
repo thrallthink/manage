@@ -94,26 +94,6 @@ class PlayerController extends Controller
     public function update(UpdatePlayerPost $player, $id)
     {
 
-
-     //     request()->validate([
-     //        'name' => 'required',
-     //        'about' => 'required',
-     //    ]);
-
-
-     //     if(isset($request->image))
-     //        {
-     //            $image_uri = time().'.'.$request->image->getClientOriginalExtension();
-     //    $request->image->move(public_path('images'), $image_uri);
-     //    $request->request->add(['image_uri' => $image_uri]);
-     //        }
- 
-     // // dd($request->all());
-
-     //    $player->update($request->all());
-
-     //     return redirect()->route('team.show',$player->team_id)
-     //        ->with('success','Player updated successfully');
      
 
           $response=   $this->call('POST','/api/player/update', $player);
@@ -130,13 +110,12 @@ class PlayerController extends Controller
      * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Player $player)
+    public function destroy(Request $request,$id)
     {
-        // dd($player);
-       $player->delete();
+
+     $response =   $this->call('DELETE',"/api/player/$id", $request);
         
-        return redirect()->route('team.show',$player->team_id)
-            ->with('success','Player deleted successfully');
-         
-    }
+        return redirect()->route('team.show',$request->team_id)
+                        ->with('success',$response['message']);    }
+
 }

@@ -19,23 +19,24 @@
             <td colspan="4" align="center">No Players added yet. </td>
         </tr>
         @else
-	    @foreach ($players as $key=>$player)
-	    <tr>
-	        <td>{{$key+1}}</td>
-	        <td>{{ $player['name'] }}</td>
-	        <td>{{ $player['about'] }}</td>
-	        <td>
+        @foreach ($players as $key=>$player)
+        <tr>
+            <td>{{$key+1}}</td>
+            <td>{{ $player['name'] }}</td>
+            <td>{{ $player['about'] }}</td>
+            <td>
                 <form action="{{ route('player.destroy',$player['id']) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('player.show',$player['id']) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('player.edit',$player['id']) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')
+                    <input type="hidden" name="team_id" value="{{$player['team_id']}}">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
-	        </td>
-	    </tr>
-	    @endforeach
+            </td>
+        </tr>
+        @endforeach
 
         @endif
     </table>
