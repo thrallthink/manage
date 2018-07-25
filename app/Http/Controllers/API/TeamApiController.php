@@ -55,13 +55,7 @@ class TeamApiController extends ApiController
      */
     public function store(StoreTeamPost $request)
     {
-        //
-       // $this->validate($request, [
-       //      'name' => 'required',
-       //      'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-       //  ]);
-
-        // $image = $request->file('image');
+       
 
         $input['logo_uri'] = time().'.'.$request->image->getClientOriginalExtension();
         $request->image->move(public_path('images/team/'), $input['logo_uri']);
@@ -120,9 +114,10 @@ class TeamApiController extends ApiController
        
        $team = Team::find($request->id);
        $team->delete();
+
+       return response()->json(['response' => 'success', 'message' => 'Team deleted']);
         
-        return redirect()->route('team.index')
-                        ->with('success','Team deleted successfully');   
+      
     }
 
 
