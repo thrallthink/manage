@@ -129,8 +129,8 @@ class TeamController extends Controller
     public function destroy(Request $request,$id)
     {
 
-     $response =   $this->call('DELETE',"/api/team/$id", $request);
+       $this->call('DELETE',"/api/team/$id", $request);
         
         return redirect()->route('team.index')
-                        ->with('success',$response['message']);    }
+                        ->with('success','Team deleted successfully');    }
 }
