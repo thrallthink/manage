@@ -13,12 +13,7 @@ use App\Http\Common\Functions;
 
 class TeamController extends Controller
 {
-    // protected $commonfunction;
-
-    // public __construct(Functions $functions)
-    // {
-    //     $this->commonfunction = $functions;
-    // }
+   
 
     public function users(){
 
@@ -34,11 +29,6 @@ class TeamController extends Controller
     public function index(Request $request)
     {
         $teams = $this->call('GET','/api/team/', $request);
-        // dd($teams);
-
-// return $response;
-
-        // $teams = Team::latest()->paginate(5);
         
         return view('team.index',compact('teams'))
             ->with('i', (request()->input('page', 1) - 1) * 25);

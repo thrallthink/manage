@@ -54,13 +54,6 @@ class PlayerApiController extends ApiController
      */
     public function store(StoreTeamPost $request)
     {
-        //
-       // $this->validate($request, [
-       //      'name' => 'required',
-       //      'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-       //  ]);
-
-        // $image = $request->file('image');
 
        $input['image_uri'] = time().'.'.$request->image->getClientOriginalExtension();
         $request->image->move(public_path('images/player/'), $input['image_uri']);
@@ -70,7 +63,6 @@ class PlayerApiController extends ApiController
         $input['code'] = $request->code;
         $input['about'] = $request->about;
         $input['team_id'] = $request->team_id;
-        // dd($input);
         Player::create($input);
 
 
@@ -109,7 +101,6 @@ class PlayerApiController extends ApiController
     public function update(Request $request)
     {
 
-       // dd($request);
     $player = Player::find($request->id);
 
     $player->name = $request->name;

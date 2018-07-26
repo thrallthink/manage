@@ -13,18 +13,7 @@ use App\Http\Common\Functions;
 
 class PlayerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    //  public function index()
-    // {
-    //     $players = Player::latest()->paginate(5);
-
-    //     return view('player.index',compact('players'))
-    //         ->with('i', (request()->input('page', 1) - 1) * 5);
-    // }
+   
 
     /**
      * Show the form for creating a new resource.
